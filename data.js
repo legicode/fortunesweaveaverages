@@ -463,69 +463,237 @@ const mounted = new Map([
 ]);
 
 const mounts = new Map([
-	["Horse", 		["Wild Horse", "Monoceros", "Ferghanan Horse", "Black Horse", "Rocinan"]],
-	["Ornius", 		["Wild Ornius", "White Ornius", "Meganius", "Red Meganius", "Magonius", "Black Magonius"]],
-	["Pegasus", 	["Wild Pegasus", "Dark Pegasus", "Falicorn", "Red Falicorn", "Bucephalus"]],
-	["Bau", 		["Wild Bau", "Red Bau", "Black Bau"]],
-	["Elephant", 	["Saramis Elephant"]]
+	["Horse", 		["Wild Horse 1", "Wild Horse 2", "Wild Horse 3", "Wild Horse 4", "Wild Horse 5",
+					"Monoceros 1", "Monoceros 2", "Monoceros 3", "Monoceros 4", "Monoceros 5",
+					"Ferghanan Horse 1", "Ferghanan Horse 2", "Ferghanan Horse 3", "Ferghanan Horse 4", "Ferghanan Horse 5",
+					"Black Horse 1", "Black Horse 2", "Black Horse 3", "Black Horse 4", "Black Horse 5",
+					"Rocinan 1", "Rocinan 2", "Rocinan 3", "Rocinan 4", "Rocinan 5"]],
+	["Ornius", 		["Wild Ornius 1", "Wild Ornius 2", "Wild Ornius 3", "Wild Ornius 4", "Wild Ornius 5",
+					"White Ornius 1", "White Ornius 2", "White Ornius 3", "White Ornius 4", "White Ornius 5",
+					"Meganius 1", "Meganius 2", "Meganius 3", "Meganius 4", "Meganius 5",
+					"Red Meganius 1", "Red Meganius 2", "Red Meganius 3", "Red Meganius 4", "Red Meganius 5",
+					"Magonius 1", "Magonius 2", "Magonius 3", "Magonius 4", "Magonius 5",
+					"Black Magonius 1", "Black Magonius 2", "Black Magonius 3", "Black Magonius 4", "Black Magonius 5"]],
+	["Pegasus", 	["Wild Pegasus 1", "Wild Pegasus 2", "Wild Pegasus 3", "Wild Pegasus 4", "Wild Pegasus 5",
+					"Dark Pegasus 1", "Dark Pegasus 2", "Dark Pegasus 3", "Dark Pegasus 4", "Dark Pegasus 5",
+					"Falicorn 1", "Falicorn 2", "Falicorn 3", "Falicorn 4", "Falicorn 5",
+					"Red Falicorn 1", "Red Falicorn 2", "Red Falicorn 3", "Red Falicorn 4", "Red Falicorn 5",
+					"Bucephalus 1", "Bucephalus 2", "Bucephalus 3", "Bucephalus 4", "Bucephalus 5"]],
+	["Bau", 		["Wild Bau 1", "Wild Bau 2", "Wild Bau 3", "Wild Bau 4", "Wild Bau 5",
+					"Red Bau 1", "Red Bau 2", "Red Bau 3", "Red Bau 4", "Red Bau 5",
+					"Black Bau 1", "Black Bau 2", "Black Bau 3", "Black Bau 4", "Black Bau 5"]],
+	["Elephant", 	["Saramis Elephant 1", "Saramis Elephant 2", "Saramis Elephant 3", "Saramis Elephant 4", "Saramis Elephant 5"]]
 ]);
 
 const mountStats = new Map([
-	["Standard", 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-	["Wild Horse", 		[0, 0, 0, 1, 3, 1, 0, 0, 0, 0]],
-	["Monoceros", 		[0, 0, 0, 1, 1, 0, 0, 3, 0, 0]],
-	["Ferghanan Horse", [0, 2, 0, 0, 1, 2, 0, 0, 0, 0]],
-	["Black Horse", 	[0, 1, 0, 3, 1, 0, 0, 0, 0, 0]],
-	["Rocinan", 		[0, 0, 0, 1, 3, 2, 0, 0, 0, 0]],
-	["Wild Ornius", 	[0, 0, 0, 2, 3, 0, 0, 0, 0, 0]],
-	["White Ornius", 	[0, 0, 0, 1, 1, 0, 3, 0, 0, 0]],
-	["Meganius", 		[0, 1, 0, 0, 1, 3, 0, 0, 0, 0]],
-	["Red Meganius", 	[0, 3, 0, 0, 1, 1, 0, 0, 0, 0]],
-	["Magonius", 		[0, 0, 3, 0, 2, 0, 0, 0, 0, 0]],
-	["Black Magonius", 	[0, 0, 2, 2, 1, 0, 0, 0, 0, 0]],
-	["Wild Pegasus", 	[0, 0, 0, 3, 0, 0, 2, 0, 0, 0]],
-	["Dark Pegasus", 	[0, 0, 3, 2, 0, 0, 0, 0, 0, 0]],
-	["Falicorn", 		[0, 1, 0, 3, 1, 0, 0, 0, 0, 0]],
-	["Red Falicorn", 	[0, 2, 0, 2, 1, 0, 0, 0, 0, 0]],
-	["Bucephalus", 		[0, 1, 0, 3, 0, 0, 2, 0, 0, 0]],
-	["Wild Bau", 		[0, 2, 0, 1, 2, 0, 0, 0, 0, 0]],
-	["Red Bau", 		[0, 3, 0, 0, 2, 0, 0, 0, 0, 0]],
-	["Black Bau", 		[0, 2, 0, 3, 0, 0, 0, 0, 0, 0]],
-	["Saramis Elephant",[0, 5, 0, 0, 5, 5, 0, 5, 0, 0]],
-	["N/A", 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+	["Standard", 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Wild Horse 1", 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Wild Horse 2", 		[0, 0, 0, 0, 1, 1, 0, 0, 0, 0]],
+	["Wild Horse 3", 		[0, 0, 0, 0, 2, 1, 0, 0, 0, 0]],
+	["Wild Horse 4", 		[0, 0, 0, 1, 2, 1, 0, 0, 0, 0]],
+	["Wild Horse 5", 		[0, 0, 0, 1, 3, 1, 0, 0, 0, 0]],
+	["Monoceros 1", 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Monoceros 2", 		[0, 0, 0, 0, 1, 0, 0, 1, 0, 0]],
+	["Monoceros 3", 		[0, 0, 0, 0, 1, 0, 0, 2, 0, 0]],
+	["Monoceros 4", 		[0, 0, 0, 1, 1, 0, 0, 2, 0, 0]],
+	["Monoceros 5", 		[0, 0, 0, 1, 1, 0, 0, 3, 0, 0]],
+	["Ferghanan Horse 1", 	[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Ferghanan Horse 2", 	[0, 1, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Ferghanan Horse 3", 	[0, 1, 0, 0, 1, 1, 0, 0, 0, 0]],
+	["Ferghanan Horse 4", 	[0, 2, 0, 0, 1, 1, 0, 0, 0, 0]],
+	["Ferghanan Horse 5", 	[0, 2, 0, 0, 1, 2, 0, 0, 0, 0]],
+	["Black Horse 1", 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Black Horse 2", 		[0, 0, 0, 1, 1, 0, 0, 0, 0, 0]],
+	["Black Horse 3", 		[0, 1, 0, 1, 1, 0, 0, 0, 0, 0]],
+	["Black Horse 4", 		[0, 1, 0, 2, 1, 0, 0, 0, 0, 0]],
+	["Black Horse 5", 		[0, 1, 0, 3, 1, 0, 0, 0, 0, 0]],
+	["Rocinan 1", 			[0, 0, 0, 0, 1, 1, 0, 0, 0, 0]],
+	["Rocinan 2", 			[0, 0, 0, 0, 1, 2, 0, 0, 0, 0]],
+	["Rocinan 3", 			[0, 0, 0, 0, 2, 2, 0, 0, 0, 0]],
+	["Rocinan 4", 			[0, 0, 0, 1, 2, 2, 0, 0, 0, 0]],
+	["Rocinan 5", 			[0, 0, 0, 1, 3, 2, 0, 0, 0, 0]],
+	["Wild Ornius 1", 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Wild Ornius 2", 		[0, 0, 0, 1, 1, 0, 0, 0, 0, 0]],
+	["Wild Ornius 3", 		[0, 0, 0, 1, 2, 0, 0, 0, 0, 0]],
+	["Wild Ornius 4", 		[0, 0, 0, 2, 2, 0, 0, 0, 0, 0]],
+	["Wild Ornius 5", 		[0, 0, 0, 2, 3, 0, 0, 0, 0, 0]],
+	["White Ornius 1", 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["White Ornius 2", 		[0, 0, 0, 0, 1, 0, 1, 0, 0, 0]],
+	["White Ornius 3", 		[0, 0, 0, 0, 1, 0, 2, 0, 0, 0]],
+	["White Ornius 4", 		[0, 0, 0, 1, 1, 0, 2, 0, 0, 0]],
+	["White Ornius 5", 		[0, 0, 0, 1, 1, 0, 3, 0, 0, 0]],
+	["Meganius 1", 			[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Meganius 2", 			[0, 0, 0, 0, 1, 1, 0, 0, 0, 0]],
+	["Meganius 3", 			[0, 0, 0, 0, 1, 2, 0, 0, 0, 0]],
+	["Meganius 4", 			[0, 0, 0, 0, 1, 3, 0, 0, 0, 0]],
+	["Meganius 5", 			[0, 1, 0, 0, 1, 3, 0, 0, 0, 0]],
+	["Red Meganius 1", 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Red Meganius 2", 		[0, 1, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Red Meganius 3", 		[0, 1, 0, 0, 1, 1, 0, 0, 0, 0]],
+	["Red Meganius 4", 		[0, 2, 0, 0, 1, 1, 0, 0, 0, 0]],
+	["Red Meganius 5", 		[0, 3, 0, 0, 1, 1, 0, 0, 0, 0]],
+	["Magonius 1", 			[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Magonius 2", 			[0, 0, 1, 0, 1, 0, 0, 0, 0, 0]],
+	["Magonius 3", 			[0, 0, 2, 0, 1, 0, 0, 0, 0, 0]],
+	["Magonius 4", 			[0, 0, 2, 0, 2, 0, 0, 0, 0, 0]],
+	["Magonius 5", 			[0, 0, 3, 0, 2, 0, 0, 0, 0, 0]],
+	["Black Magonius 1", 	[0, 0, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Black Magonius 2", 	[0, 0, 1, 0, 1, 0, 0, 0, 0, 0]],
+	["Black Magonius 3", 	[0, 0, 2, 0, 1, 0, 0, 0, 0, 0]],
+	["Black Magonius 4", 	[0, 0, 2, 1, 1, 0, 0, 0, 0, 0]],
+	["Black Magonius 5", 	[0, 0, 2, 2, 1, 0, 0, 0, 0, 0]],
+	["Wild Pegasus 1", 		[0, 0, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Wild Pegasus 2", 		[0, 0, 0, 1, 0, 0, 1, 0, 0, 0]],
+	["Wild Pegasus 3", 		[0, 0, 0, 2, 0, 0, 1, 0, 0, 0]],
+	["Wild Pegasus 4", 		[0, 0, 0, 3, 0, 0, 1, 0, 0, 0]],
+	["Wild Pegasus 5", 		[0, 0, 0, 3, 0, 0, 2, 0, 0, 0]],
+	["Dark Pegasus 1", 		[0, 0, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Dark Pegasus 2", 		[0, 0, 1, 1, 0, 0, 0, 0, 0, 0]],
+	["Dark Pegasus 3", 		[0, 0, 2, 1, 0, 0, 0, 0, 0, 0]],
+	["Dark Pegasus 4", 		[0, 0, 2, 2, 0, 0, 0, 0, 0, 0]],
+	["Dark Pegasus 5", 		[0, 0, 3, 2, 0, 0, 0, 0, 0, 0]],
+	["Falicorn 1", 			[0, 0, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Falicorn 2", 			[0, 0, 0, 2, 0, 0, 0, 0, 0, 0]],
+	["Falicorn 3", 			[0, 0, 0, 2, 1, 0, 0, 0, 0, 0]],
+	["Falicorn 4", 			[0, 0, 0, 3, 1, 0, 0, 0, 0, 0]],
+	["Falicorn 5", 			[0, 1, 0, 3, 1, 0, 0, 0, 0, 0]],
+	["Red Falicorn 1", 		[0, 0, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Red Falicorn 2", 		[0, 1, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Red Falicorn 3", 		[0, 2, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Red Falicorn 4", 		[0, 2, 0, 1, 1, 0, 0, 0, 0, 0]],
+	["Red Falicorn 5", 		[0, 2, 0, 2, 1, 0, 0, 0, 0, 0]],
+	["Bucephalus 1", 		[0, 1, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Bucephalus 2", 		[0, 1, 0, 1, 0, 0, 1, 0, 0, 0]],
+	["Bucephalus 3", 		[0, 1, 0, 2, 0, 0, 1, 0, 0, 0]],
+	["Bucephalus 4", 		[0, 1, 0, 3, 0, 0, 1, 0, 0, 0]],
+	["Bucephalus 5", 		[0, 1, 0, 3, 0, 0, 2, 0, 0, 0]],
+	["Wild Bau 1", 			[0, 1, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Wild Bau 2", 			[0, 1, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Wild Bau 3", 			[0, 1, 0, 1, 1, 0, 0, 0, 0, 0]],
+	["Wild Bau 4", 			[0, 2, 0, 1, 1, 0, 0, 0, 0, 0]],
+	["Wild Bau 5", 			[0, 2, 0, 1, 2, 0, 0, 0, 0, 0]],
+	["Red Bau 1", 			[0, 1, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Red Bau 2", 			[0, 2, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Red Bau 3", 			[0, 2, 0, 0, 1, 0, 0, 0, 0, 0]],
+	["Red Bau 4", 			[0, 2, 0, 0, 2, 0, 0, 0, 0, 0]],
+	["Red Bau 5", 			[0, 3, 0, 0, 2, 0, 0, 0, 0, 0]],
+	["Black Bau 1", 		[0, 1, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Black Bau 2", 		[0, 1, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Black Bau 3", 		[0, 2, 0, 1, 0, 0, 0, 0, 0, 0]],
+	["Black Bau 4", 		[0, 2, 0, 2, 0, 0, 0, 0, 0, 0]],
+	["Black Bau 5", 		[0, 2, 0, 3, 0, 0, 0, 0, 0, 0]],
+	["Saramis Elephant 1",	[0, 1, 0, 0, 1, 1, 0, 1, 0, 0]],
+	["Saramis Elephant 2",	[0, 2, 0, 0, 2, 2, 0, 2, 0, 0]],
+	["Saramis Elephant 3",	[0, 3, 0, 0, 3, 3, 0, 3, 0, 0]],
+	["Saramis Elephant 4",	[0, 4, 0, 0, 4, 4, 0, 4, 0, 0]],
+	["Saramis Elephant 5",	[0, 5, 0, 0, 5, 5, 0, 5, 0, 0]],
+	["N/A", 				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 ]);
 
 const mountGrowths = new Map([
-	["Standard", 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-	["Wild Horse", 		[5, 0, 0, 5, 5, 5, 5, 0, 0, 0]],
-	["Monoceros", 		[5, 0, 0, 5, 5, 0,10, 0, 0, 0]],
-	["Ferghanan Horse", [5, 5, 0, 0, 5,10, 0, 0, 0, 0]],
-	["Black Horse", 	[5, 5, 0,10, 5, 0, 0, 0, 0, 0]],
-	["Rocinan", 		[5, 0, 0, 5, 5,10, 5, 0, 0, 0]],
-	["Wild Ornius", 	[0, 0, 0,10,15, 0, 0, 0, 0, 0]],
-	["White Ornius", 	[0, 0, 0, 5, 5, 0,15, 0, 0, 0]],
-	["Meganius", 		[0, 5, 0, 0, 5,15, 0, 0, 0, 0]],
-	["Red Meganius", 	[0,15, 0, 0, 5, 5, 0, 0, 0, 0]],
-	["Magonius", 		[0, 0,15, 0,10, 0, 0, 0, 0, 0]],
-	["Black Magonius", 	[0, 0,10,10, 5, 0, 0, 0, 0, 0]],
-	["Wild Pegasus", 	[0, 0, 0,15, 0, 0,10, 0, 0, 0]],
-	["Dark Pegasus", 	[0, 0,15,10, 0, 0, 0, 0, 0, 0]],
-	["Falicorn", 		[0, 5, 0,15, 5, 0, 0, 0, 0, 0]],
-	["Red Falicorn", 	[0,10, 0,10, 5, 0, 0, 0, 0, 0]],
-	["Bucephalus", 		[0, 5, 0,15, 0, 0,10, 0, 0, 0]],
-	["Wild Bau", 		[0,10, 0, 5,10, 0, 0, 0, 0, 0]],
-	["Red Bau", 		[0,15, 0, 0,10, 0, 0, 0, 0, 0]],
-	["Black Bau", 		[0,10, 0,15, 0, 0, 0, 0, 0, 0]],
-	["War Elephant", 	[5, 5, 0, 0, 5, 5, 0, 5, 0, 0]],
-	["N/A", 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+	["Standard", 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Wild Horse 1", 		[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Wild Horse 2", 		[0, 0, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Wild Horse 3", 		[0, 0, 0, 5, 5, 5, 0, 0, 0, 0]],
+	["Wild Horse 4", 		[5, 0, 0, 5, 5, 5, 0, 0, 0, 0]],
+	["Wild Horse 5", 		[5, 0, 0, 5, 5, 5, 5, 0, 0, 0]],
+	["Monoceros 1", 		[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Monoceros 2", 		[0, 0, 0, 0, 5, 0, 5, 0, 0, 0]],
+	["Monoceros 3", 		[0, 0, 0, 0, 5, 0,10, 0, 0, 0]],
+	["Monoceros 4", 		[0, 0, 0, 5, 5, 0,10, 0, 0, 0]],
+	["Monoceros 5", 		[5, 0, 0, 5, 5, 0,10, 0, 0, 0]],
+	["Ferghanan Horse 1", 	[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Ferghanan Horse 2", 	[0, 5, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Ferghanan Horse 3", 	[0, 5, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Ferghanan Horse 4", 	[5, 5, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Ferghanan Horse 5", 	[5, 5, 0, 0, 5,10, 0, 0, 0, 0]],
+	["Black Horse 1", 		[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Black Horse 2", 		[0, 0, 0, 5, 5, 0, 0, 0, 0, 0]],
+	["Black Horse 3", 		[0, 5, 0, 5, 5, 0, 0, 0, 0, 0]],
+	["Black Horse 4", 		[5, 5, 0, 5, 5, 0, 0, 0, 0, 0]],
+	["Black Horse 5", 		[5, 5, 0,10, 5, 0, 0, 0, 0, 0]],
+	["Rocinan 1", 			[0, 0, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Rocinan 2", 			[0, 0, 0, 5, 5, 5, 0, 0, 0, 0]],
+	["Rocinan 3", 			[0, 0, 0, 5, 5, 5, 5, 0, 0, 0]],
+	["Rocinan 4", 			[5, 0, 0, 5, 5, 5, 5, 0, 0, 0]],
+	["Rocinan 5", 			[5, 0, 0, 5, 5,10, 5, 0, 0, 0]],
+	["Wild Ornius 1", 		[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Wild Ornius 2", 		[0, 0, 0, 5, 5, 0, 0, 0, 0, 0]],
+	["Wild Ornius 3", 		[0, 0, 0, 5,10, 0, 0, 0, 0, 0]],
+	["Wild Ornius 4", 		[0, 0, 0,10,10, 0, 0, 0, 0, 0]],
+	["Wild Ornius 5", 		[0, 0, 0,10,15, 0, 0, 0, 0, 0]],
+	["White Ornius 1", 		[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["White Ornius 2", 		[0, 0, 0, 0, 5, 0, 5, 0, 0, 0]],
+	["White Ornius 3", 		[0, 0, 0, 5, 5, 0, 5, 0, 0, 0]],
+	["White Ornius 4", 		[0, 0, 0, 5, 5, 0,10, 0, 0, 0]],
+	["White Ornius 5", 		[0, 0, 0, 5, 5, 0,15, 0, 0, 0]],
+	["Meganius 1", 			[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Meganius 2", 			[0, 0, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Meganius 3", 			[0, 0, 0, 0, 5,10, 0, 0, 0, 0]],
+	["Meganius 4", 			[0, 0, 0, 0, 5,15, 0, 0, 0, 0]],
+	["Meganius 5", 			[0, 5, 0, 0, 5,15, 0, 0, 0, 0]],
+	["Red Meganius 1", 		[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Red Meganius 2", 		[0, 5, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Red Meganius 3", 		[0, 5, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Red Meganius 4", 		[0,10, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Red Meganius 5", 		[0,15, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Magonius 1", 			[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Magonius 2", 			[0, 0, 5, 0, 5, 0, 0, 0, 0, 0]],
+	["Magonius 3", 			[0, 0,10, 0, 5, 0, 0, 0, 0, 0]],
+	["Magonius 4", 			[0, 0,10, 0,10, 0, 0, 0, 0, 0]],
+	["Magonius 5", 			[0, 0,15, 0,10, 0, 0, 0, 0, 0]],
+	["Black Magonius 1", 	[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Black Magonius 2", 	[0, 0, 5, 0, 5, 0, 0, 0, 0, 0]],
+	["Black Magonius 3", 	[0, 0, 5, 5, 5, 0, 0, 0, 0, 0]],
+	["Black Magonius 4", 	[0, 0,10, 5, 5, 0, 0, 0, 0, 0]],
+	["Black Magonius 5", 	[0, 0,10,10, 5, 0, 0, 0, 0, 0]],
+	["Wild Pegasus 1", 		[0, 0, 0, 5, 0, 0, 0, 0, 0, 0]],
+	["Wild Pegasus 2", 		[0, 0, 0, 5, 0, 0, 5, 0, 0, 0]],
+	["Wild Pegasus 3", 		[0, 0, 0,10, 0, 0, 5, 0, 0, 0]],
+	["Wild Pegasus 4", 		[0, 0, 0,15, 0, 0, 5, 0, 0, 0]],
+	["Wild Pegasus 5", 		[0, 0, 0,15, 0, 0,10, 0, 0, 0]],
+	["Dark Pegasus 1", 		[0, 0, 0, 5, 0, 0, 0, 0, 0, 0]],
+	["Dark Pegasus 2", 		[0, 0, 5, 5, 0, 0, 0, 0, 0, 0]],
+	["Dark Pegasus 3", 		[0, 0,10, 5, 0, 0, 0, 0, 0, 0]],
+	["Dark Pegasus 4", 		[0, 0,10,10, 0, 0, 0, 0, 0, 0]],
+	["Dark Pegasus 5", 		[0, 0,15,10, 0, 0, 0, 0, 0, 0]],
+	["Falicorn 1", 			[0, 0, 0, 5, 0, 0, 0, 0, 0, 0]],
+	["Falicorn 2", 			[0, 0, 0,10, 0, 0, 0, 0, 0, 0]],
+	["Falicorn 3", 			[0, 0, 0,10, 5, 0, 0, 0, 0, 0]],
+	["Falicorn 4", 			[0, 0, 0,15, 5, 0, 0, 0, 0, 0]],
+	["Falicorn 5", 			[0, 5, 0,15, 5, 0, 0, 0, 0, 0]],
+	["Red Falicorn 1", 		[0, 0, 0, 5, 0, 0, 0, 0, 0, 0]],
+	["Red Falicorn 2", 		[0, 5, 0, 5, 0, 0, 0, 0, 0, 0]],
+	["Red Falicorn 3", 		[0, 5, 0, 5, 5, 0, 0, 0, 0, 0]],
+	["Red Falicorn 4", 		[0,10, 0, 5, 5, 0, 0, 0, 0, 0]],
+	["Red Falicorn 5", 		[0,10, 0,10, 5, 0, 0, 0, 0, 0]],
+	["Bucephalus 1", 		[0, 5, 0, 5, 0, 0, 0, 0, 0, 0]],
+	["Bucephalus 2", 		[0, 5, 0, 5, 0, 0, 5, 0, 0, 0]],
+	["Bucephalus 3", 		[0, 5, 0,10, 0, 0, 5, 0, 0, 0]],
+	["Bucephalus 4", 		[0, 5, 0,15, 0, 0, 5, 0, 0, 0]],
+	["Bucephalus 5", 		[0, 5, 0,15, 0, 0,10, 0, 0, 0]],
+	["Wild Bau 1", 			[0, 5, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Wild Bau 2", 			[0, 5, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Wild Bau 3", 			[0, 5, 0, 5, 5, 0, 0, 0, 0, 0]],
+	["Wild Bau 4", 			[0,10, 0, 5, 5, 0, 0, 0, 0, 0]],
+	["Wild Bau 5", 			[0,10, 0, 5,10, 0, 0, 0, 0, 0]],
+	["Red Bau 1", 			[0, 5, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Red Bau 2", 			[0,10, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Red Bau 3", 			[0,10, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Red Bau 4", 			[0,10, 0, 0,10, 0, 0, 0, 0, 0]],
+	["Red Bau 5", 			[0,15, 0, 0,10, 0, 0, 0, 0, 0]],
+	["Black Bau 1", 		[0, 5, 0, 0, 0, 0, 0, 0, 0, 0]],
+	["Black Bau 2", 		[0, 5, 0, 5, 0, 0, 0, 0, 0, 0]],
+	["Black Bau 3", 		[0, 5, 0,10, 0, 0, 0, 0, 0, 0]],
+	["Black Bau 4", 		[0,10, 0,10, 0, 0, 0, 0, 0, 0]],
+	["Black Bau 5", 		[0,10, 0,15, 0, 0, 0, 0, 0, 0]],
+	["Saramis Elephant 1", 	[0, 0, 0, 0, 5, 0, 0, 0, 0, 0]],
+	["Saramis Elephant 2", 	[0, 0, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Saramis Elephant 3", 	[5, 0, 0, 0, 5, 5, 0, 0, 0, 0]],
+	["Saramis Elephant 4", 	[5, 0, 0, 0, 5, 5, 0, 5, 0, 0]],
+	["Saramis Elephant 5", 	[5, 5, 0, 0, 5, 5, 0, 5, 0, 0]],
+	["N/A", 				[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 ]);
-
-const autoMounts = new Map ([
-	["Rocinan 2", 		[0, 0, 0, 5, 5, 5, 0, 0, 0, 0]],
-	["Rocinan 3", 		[5, 0, 0, 5, 5, 5, 0, 0, 0, 0]],
-	["Bucephalus 2", 	[0, 5, 0, 5, 0, 0, 5, 0, 0, 0]],
-	["Bucephalus 3", 	[0, 5, 0,10, 0, 0, 5, 0, 0, 0]],
-])
 
 const genders = new Map([
 	["Cai", 		"M"],
@@ -945,14 +1113,26 @@ function listMounts(side, level){
 		}
 	}
 	if (this[side+"Char"+1].value == "Alexandra" && mounted.get(this[side+"Class"+level].value) == "Pegasus"){
-		this[side+"Mount"+level].value = "Bucephalus";
+		if (level <= 25){
+			this[side+"Mount"+level].value = "Bucephalus 2";
+		}
+		else{
+			this[side+"Mount"+level].value = "Bucephalus 3";
+		}
 	}
 	if (this[side+"Char"+1].value == "Io" && mounted.get(this[side+"Class"+level].value) == "Horse"){
-		this[side+"Mount"+level].value = "Rocinan";
+		if (level <= 25){
+			this[side+"Mount"+level].value = "Rocinan 2";
+		}
+		else{
+			this[side+"Mount"+level].value = "Rocinan 3";
+		}
 	}
 	if (level > 1){
-		if (mounted.get(this[side+"Class"+level].value) == mounted.get(this[side+"Class"+(level-1)].value)){
-			this[side+"Mount"+level].value = this[side+"Mount"+(level-1)].value;
+		if (!["Io", "Alexandra"].includes(this[side+"Char"+1].value) || level != 26){
+			if (mounted.get(this[side+"Class"+level].value) == mounted.get(this[side+"Class"+(level-1)].value)){
+				this[side+"Mount"+level].value = this[side+"Mount"+(level-1)].value;
+			}
 		}
 	}
 }
@@ -1027,6 +1207,10 @@ function updateChar(side){
 			this[side+"CharRecruit2"].options.add(new Option(i));
 		}
 	}
+	/*if (["Cai", "Bertrand", "Dietrich", "Orchel", "Theodora", "Talimun", "Leda", "Anatolia"].includes(this[side+"Char1"].value)){
+		this[side+"CharRecruit1"].options.add(new Option(40));
+		this[side+"CharRecruit2"].options.add(new Option(40));
+	}*/
 	listClasses(this[side+"CharStats"]);
 	autoLevel(side);
 }
@@ -1061,12 +1245,20 @@ function autoLevel(side){
 			this[side+"Class"+i].value = defaultClasses.get(this[side+"Char"+1].value)[classLevels[i]];
 			this[side+"Class"+i].disabled = true;
 			listMounts(side, i);
-			listMounts(side, level);
-			if (["Io", "Alexandra"].includes(this[side+"Char1"].value)){
-				this[side+"Mount"+1].selectedIndex = this[side+"Mount"+1].length - 1;
+			if (this[side+"Char1"].value == "Io" && i >= 20 && i <= 25){
+				this[side+"Mount"+i].value = "Rocinan 2"
+			}
+			else if (this[side+"Char1"].value == "Io" && i > 25){
+				this[side+"Mount"+i].value = "Rocinan 3";
+			}
+			else if (this[side+"Char1"].value == "Alexandra" && i >= 20 && i <= 25){
+				this[side+"Mount"+i].value = "Bucephalus 2";
+			}
+			else if (this[side+"Char1"].value == "Alexandra" && i > 25){
+				this[side+"Mount"+i].value = "Bucephalus 3";
 			}
 			else{
-				this[side+"Mount"+1].selectedIndex = 0;
+				this[side+"Mount"+i].selectedIndex = 0;
 			}
 			this[side+"Mount"+i].disabled = true;
 		}
@@ -1077,16 +1269,16 @@ function autoLevel(side){
 				cap = 120;
 			}
 			if (this[side+"Char1"].value == "Io" && i > 20 && i <= 25){
-				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j] + autoMounts.get("Rocinan 2")[j]) * 0.008 - 0.01) * 100) / 100, cap);
+				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j] + mountGrowths.get("Rocinan 2")[j]) * 0.008 - 0.01) * 100) / 100, cap);
 			}
 			else if (this[side+"Char1"].value == "Io" && i > 25){
-				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j] + autoMounts.get("Rocinan 3")[j]) * 0.008 - 0.01) * 100) / 100, cap);
+				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j] + mountGrowths.get("Rocinan 3")[j]) * 0.008 - 0.01) * 100) / 100, cap);
 			}
 			else if (this[side+"Char1"].value == "Alexandra" && i > 20 && i <= 25){
-				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j] + autoMounts.get("Bucephalus 2")[j]) * 0.008 - 0.01) * 100) / 100, cap);
+				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j] + mountGrowths.get("Bucephalus 2")[j]) * 0.008 - 0.01) * 100) / 100, cap);
 			}
 			else if (this[side+"Char1"].value == "Alexandra" && i > 25){
-				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j] + autoMounts.get("Bucephalus 3")[j]) * 0.008 - 0.01) * 100) / 100, cap);
+				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j] + mountGrowths.get("Bucephalus 3")[j]) * 0.008 - 0.01) * 100) / 100, cap);
 			}
 			else{
 				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(this[side+"Class"+(i-1)].value)[j]) * 0.008 - 0.01) * 100) / 100, cap);
@@ -1186,7 +1378,6 @@ function updateStats(side, level){
 	}
 	for (let i = level*1+1; i <= maxLevel; i++){
 		this[side+"Class"+i].disabled = false;
-		listMounts(side, i);
 		if (mounted.get(this[side+"Class"+i].value) != "None"){
 			this[side+"Mount"+i].disabled = false;
 		}
@@ -1292,4 +1483,3 @@ updateChar("left");
 updateChar("right");
 autoLevel("left");
 autoLevel("right");
-
