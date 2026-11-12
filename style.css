@@ -1,0 +1,95 @@
+body{
+	font-family: sans-serif;
+	font-size: 16px;
+	background-color: #202020;
+	color: #FFFFFF;
+}
+table{
+	border-collapse: collapse;
+	background-color: #233D46;
+	margin-left: auto; 
+	margin-right: auto;
+}
+table#head, table#below{
+	width: 970px;
+}
+table#characters{
+	width: 1900px;
+}
+td#header, td#subheader, td#intro, td.options, td#footer{
+	border: 12px solid #7F6A00;
+	border-left-width: 40px;
+	border-right-width: 40px;
+}
+td#header, td#subheader, td#footer{
+	padding: 8px;
+	line-height: 24px;
+}
+td#header{
+	border-top-width: 16px;
+	border-bottom-width: 12px;
+}
+td#footer{
+	border-top-width: 0px;
+	border-bottom-width: 16px;
+}
+td#intro{
+	text-align: left;
+	font-size: 18px;
+	line-height: 27px;
+	padding: 25px;
+	padding-top: 5px;
+	border-bottom-width: 0px;
+}
+h3{
+	text-align: center;
+}
+td.calculator{
+	border: solid #7F6A00;
+	width: 800px;
+	font-size: 16px;
+	vertical-align: top;
+	border-left-width: 40px;
+	border-right-width: 40px;
+	border-top-width: 30px;
+	border-bottom-width: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+th, td{
+	border: 2px solid;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 4px;
+	padding-right: 4px;
+	border-color: #C0C0C0;
+}
+th{
+	border-top: 4px solid;
+	border-bottom: 4px solid;
+	border-color: #C0C0C0;
+}
+th.classes{
+	width: 132px;
+}
+th.mount{
+	width: 132px;
+	font-weight: normal;
+}
+th.level{
+	width: 28px;
+}
+th.stats{
+	width: 42px;
+}
+th.mov{
+	width: 36px;
+}
+table.statstable{
+	margin-left: auto; 
+	margin-right: auto;
+}
+a:link, a:visited{
+  color: #BB70C2;
+}

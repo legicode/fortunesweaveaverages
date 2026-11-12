@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"> 
+		<title>Fire Emblem: Fortune's Weave average stats calculator</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta name="google-site-verification" content="lUW7ntQ9G46pc1CGUx5YMmg3ReLNqKageKQ65JJ5BH4" />
+	</head>
+
+	<body>
+		<table id="head">
+			<tr><td id="header">
+				<a href="https://legicode.github.io/bindingbladecalc/">Binding Blade</a> <b>|</b>
+				<a href="https://legicode.github.io/blazingbladecalc/">Blazing Blade</a> <b>|</b>
+				<a href="https://legicode.github.io/sacredstonescalc/">Sacred Stones</a> <b>|</b>
+				<a href="https://legicode.github.io/pathofradiancecalc/">Path of Radiance</a> <b>|</b>
+				<a href="https://legicode.github.io/radiantdawncalc/">Radiant Dawn</a><br />
+				<a href="https://legicode.github.io/awakeningcalc/">Awakening data</a> <b>|</b>
+				<a href="https://legicode.github.io/awakeningaverages/">Awakening averages</a> <b>|</b>
+				<a href="https://redd.it/1wfd5lc">Awakening tier list</a> <b>|</b>
+				<b>Fortune's Weave averages</b>
+			</td></tr>
+
+			<tr><td id="intro">
+				<h3>Average stats calculator for Fire Emblem: Fortune's Weave</h3>
+				<u>Special thanks to:</u><br />
+				<a href="https://www.reddit.com/r/fireemblem/comments/1xfi42m/fortunes_weave_base_stats_and_almost_exact/">averysillyman</a>: Autolevel formula deciphering<br />
+				<a href="https://forums.serenesforest.net/topic/108442-starting-to-collect-recruitment-data/#findComment-6193231">Aggro Incarnate</a>: Stats data collection<br /><br />
+				Developed by <a href="https://bsky.app/profile/homestar.bsky.social">legi</a>, written by hand with no AI use. Feel free to message any suggestions or ideas. Remaining unimplemented features (like full growths/bases table) will be coming soon.<br /><br />
+				If you found this tool useful, any donations are appreciated. <a href="https://ko-fi.com/legitimart"><b>Ko-fi</b></a>
+			</td></tr>
+		</table>
+
+		<table id="characters">
+			<tr>
+				<td class="calculator">
+					<b>Character:</b> &nbsp<select id="leftChar1" onChange="leftChar2.value = this.value; updateChar('left')">
+						<option value="Cai">Cai</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<b>Recruitment Lv:</b> &nbsp<select id="leftCharRecruit1" onChange="leftCharRecruit2.value = this.value; autoLevel('left')">
+						<option value="1">1</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<b>Display:</b> &nbsp<select id="display1" onChange="display2.value = this.value; display3.value = this.value; display4.value = this.value; updateDisplay()">
+						<option value="Decimal">Decimal</option>
+						<option value="Rounded">Rounded</option>
+					</select><br /><br />
+					<table class="statstable" id="leftCharStats">
+						<tr>
+							<th class="classes"><u>Base</u></th>
+							<th class="mount"><u>Mount</u></th>
+							<th class="level">Lv.</th>
+							<th class="stats">HP</th>
+							<th class="stats">Str</th>
+							<th class="stats">Mag</th>
+							<th class="stats">Spd</th>
+							<th class="stats">Dex</th>
+							<th class="stats">Def</th>
+							<th class="stats">Res</th>
+							<th class="stats">Lck</th>
+							<th class="stats">Cha</th>
+							<th class="mov">Mov</th>
+						</tr>
+					</table><br />
+					<b>Character:</b> &nbsp<select id="leftChar2" onChange="leftChar1.value = this.value; updateChar('left')">
+						<option value="Cai">Cai</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<b>Recruitment Lv:</b> &nbsp<select id="leftCharRecruit2" onChange="leftCharRecruit1.value = this.value; autoLevel('left')">
+						<option value="1">1</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<b>Display:</b> &nbsp<select id="display2" onChange="display1.value = this.value; display3.value = this.value; display4.value = this.value; updateDisplay()">
+						<option value="Decimal">Decimal</option>
+						<option value="Rounded">Rounded</option>
+					</select>
+				</td>
+				<td class="calculator">
+					<b>Character:</b> &nbsp<select id="rightChar1" onChange="rightChar2.value = this.value; updateChar('right')">
+						<option value="Alexandra">Alexandra</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<b>Recruitment Lv:</b> &nbsp<select id="rightCharRecruit1" onChange="rightCharRecruit2.value = this.value; autoLevel('right')">
+						<option value="1">1</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<b>Display:</b> &nbsp<select id="display3" onChange="display1.value = this.value; display2.value = this.value; display4.value = this.value; updateDisplay()">
+						<option value="Decimal">Decimal</option>
+						<option value="Rounded">Rounded</option>
+					</select><br /><br />
+					<table class="statstable" id="rightCharStats">
+						<tr>
+							<th class="classes"><u>Base</u></th>
+							<th class="mount"><u>Mount</u></th>
+							<th class="level">Lv.</th>
+							<th class="stats">HP</th>
+							<th class="stats">Str</th>
+							<th class="stats">Mag</th>
+							<th class="stats">Spd</th>
+							<th class="stats">Dex</th>
+							<th class="stats">Def</th>
+							<th class="stats">Res</th>
+							<th class="stats">Lck</th>
+							<th class="stats">Cha</th>
+							<th class="mov">Mov</th>
+						</tr>
+					</table><br />
+					<b>Character:</b> &nbsp<select id="rightChar2" onChange="rightChar1.value = this.value; updateChar('right')">
+						<option value="Alexandra">Alexandra</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<b>Recruitment Lv:</b> &nbsp<select id="rightCharRecruit2" onChange="rightCharRecruit1.value = this.value; autoLevel('right')">
+						<option value="1">1</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<b>Display:</b> &nbsp<select id="display4" onChange="display1.value = this.value; display2.value = this.value; display3.value = this.value; updateDisplay()">
+						<option value="Decimal">Decimal</option>
+						<option value="Rounded">Rounded</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+
+		<table id="below">
+			<tr><td id="footer">
+				<a href="https://legicode.github.io/bindingbladecalc/">Binding Blade</a> <b>|</b>
+				<a href="https://legicode.github.io/blazingbladecalc/">Blazing Blade</a> <b>|</b>
+				<a href="https://legicode.github.io/sacredstonescalc/">Sacred Stones</a> <b>|</b>
+				<a href="https://legicode.github.io/pathofradiancecalc/">Path of Radiance</a> <b>|</b>
+				<a href="https://legicode.github.io/radiantdawncalc/">Radiant Dawn</a><br />
+				<a href="https://legicode.github.io/awakeningcalc/">Awakening data</a> <b>|</b>
+				<a href="https://legicode.github.io/awakeningaverages/">Awakening averages</a> <b>|</b>
+				<a href="https://redd.it/1wfd5lc">Awakening tier list</a> <b>|</b>
+				<b>Fortune's Weave averages</b>
+			</td></tr>
+		</table>
+		<script src="data.js"></script>
+	</body>
+</html>
