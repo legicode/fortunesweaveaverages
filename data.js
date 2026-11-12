@@ -463,26 +463,26 @@ const mounted = new Map([
 ]);
 
 const mounts = new Map([
-	["Horse", 		["Wild Horse 1", "Wild Horse 2", "Wild Horse 3", "Wild Horse 4", "Wild Horse 5",
-					"Monoceros 1", "Monoceros 2", "Monoceros 3", "Monoceros 4", "Monoceros 5",
-					"Ferghanan Horse 1", "Ferghanan Horse 2", "Ferghanan Horse 3", "Ferghanan Horse 4", "Ferghanan Horse 5",
-					"Black Horse 1", "Black Horse 2", "Black Horse 3", "Black Horse 4", "Black Horse 5",
-					"Rocinan 1", "Rocinan 2", "Rocinan 3", "Rocinan 4", "Rocinan 5"]],
-	["Ornius", 		["Wild Ornius 1", "Wild Ornius 2", "Wild Ornius 3", "Wild Ornius 4", "Wild Ornius 5",
-					"White Ornius 1", "White Ornius 2", "White Ornius 3", "White Ornius 4", "White Ornius 5",
-					"Meganius 1", "Meganius 2", "Meganius 3", "Meganius 4", "Meganius 5",
-					"Red Meganius 1", "Red Meganius 2", "Red Meganius 3", "Red Meganius 4", "Red Meganius 5",
-					"Magonius 1", "Magonius 2", "Magonius 3", "Magonius 4", "Magonius 5",
-					"Black Magonius 1", "Black Magonius 2", "Black Magonius 3", "Black Magonius 4", "Black Magonius 5"]],
-	["Pegasus", 	["Wild Pegasus 1", "Wild Pegasus 2", "Wild Pegasus 3", "Wild Pegasus 4", "Wild Pegasus 5",
-					"Dark Pegasus 1", "Dark Pegasus 2", "Dark Pegasus 3", "Dark Pegasus 4", "Dark Pegasus 5",
-					"Falicorn 1", "Falicorn 2", "Falicorn 3", "Falicorn 4", "Falicorn 5",
-					"Red Falicorn 1", "Red Falicorn 2", "Red Falicorn 3", "Red Falicorn 4", "Red Falicorn 5",
-					"Bucephalus 1", "Bucephalus 2", "Bucephalus 3", "Bucephalus 4", "Bucephalus 5"]],
-	["Bau", 		["Wild Bau 1", "Wild Bau 2", "Wild Bau 3", "Wild Bau 4", "Wild Bau 5",
-					"Red Bau 1", "Red Bau 2", "Red Bau 3", "Red Bau 4", "Red Bau 5",
-					"Black Bau 1", "Black Bau 2", "Black Bau 3", "Black Bau 4", "Black Bau 5"]],
-	["Elephant", 	["Saramis Elephant 1", "Saramis Elephant 2", "Saramis Elephant 3", "Saramis Elephant 4", "Saramis Elephant 5"]]
+	["Horse", 		["Wild Horse 5", "Wild Horse 4", "Wild Horse 3", "Wild Horse 2", "Wild Horse 1",
+					"Monoceros 5", "Monoceros 4", "Monoceros 3", "Monoceros 2", "Monoceros 1",
+					"Ferghanan Horse 5", "Ferghanan Horse 4", "Ferghanan Horse 3", "Ferghanan Horse 2", "Ferghanan Horse 1",
+					"Black Horse 5", "Black Horse 4", "Black Horse 3", "Black Horse 2", "Black Horse 1",
+					"Rocinan 5", "Rocinan 4", "Rocinan 3", "Rocinan 2", "Rocinan 1"]],
+	["Ornius", 		["Wild Ornius 5", "Wild Ornius 4", "Wild Ornius 3", "Wild Ornius 2", "Wild Ornius 1",
+					"White Ornius 5", "White Ornius 4", "White Ornius 3", "White Ornius 2", "White Ornius 1",
+					"Meganius 5", "Meganius 5", "Meganius 3", "Meganius 2", "Meganius 1",
+					"Red Meganius 5", "Red Meganius 4", "Red Meganius 3", "Red Meganius 2", "Red Meganius 1",
+					"Magonius 5", "Magonius 4", "Magonius 3", "Magonius 2", "Magonius 1",
+					"Black Magonius 5", "Black Magonius 4", "Black Magonius 3", "Black Magonius 2", "Black Magonius 1"]],
+	["Pegasus", 	["Wild Pegasus 5", "Wild Pegasus 4", "Wild Pegasus 3", "Wild Pegasus 2", "Wild Pegasus 1",
+					"Dark Pegasus 5", "Dark Pegasus 4", "Dark Pegasus 3", "Dark Pegasus 2", "Dark Pegasus 1",
+					"Falicorn 5", "Falicorn 4", "Falicorn 3", "Falicorn 2", "Falicorn 1",
+					"Red Falicorn 5", "Red Falicorn 4", "Red Falicorn 3", "Red Falicorn 2", "Red Falicorn 1",
+					"Bucephalus 5", "Bucephalus 4", "Bucephalus 3", "Bucephalus 2", "Bucephalus 1"]],
+	["Bau", 		["Wild Bau 5", "Wild Bau 4", "Wild Bau 3", "Wild Bau 2", "Wild Bau 1",
+					"Red Bau 5", "Red Bau 4", "Red Bau 3", "Red Bau 2", "Red Bau 1",
+					"Black Bau 5", "Black Bau 4", "Black Bau 3", "Black Bau 2", "Black Bau 1"]],
+	["Elephant", 	["Saramis Elephant 5", "Saramis Elephant 4", "Saramis Elephant 3", "Saramis Elephant 2", "Saramis Elephant 1"]]
 ]);
 
 const mountStats = new Map([
@@ -1207,10 +1207,6 @@ function updateChar(side){
 			this[side+"CharRecruit2"].options.add(new Option(i));
 		}
 	}
-	/*if (["Cai", "Bertrand", "Dietrich", "Orchel", "Theodora", "Talimun", "Leda", "Anatolia"].includes(this[side+"Char1"].value)){
-		this[side+"CharRecruit1"].options.add(new Option(40));
-		this[side+"CharRecruit2"].options.add(new Option(40));
-	}*/
 	listClasses(this[side+"CharStats"]);
 	autoLevel(side);
 }
