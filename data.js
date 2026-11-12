@@ -49,7 +49,7 @@ const defaultClasses = new Map([
 	["Ludia", 		["Noble", "Gladiator", "Myrmidon", "Shido", "Swordmaster"]],
 	["Simon", 		["Commoner", "Gladiator", "Brigand", "Blacksmith", "Battlemaster"]],
 	["Fianna", 		["Commoner", "Diviner", "Priest", "Troubador", "Valkyrium"]],
-	["Leda", 		["Commoner", "Hunter", "Rogue", "Dancer", "Dancer"]],
+	["Leda", 		["Commoner", "Hunter", "Rogue", "Dancer", "Shadow Seeker"]],
 	["Buccar", 		["Commoner", "Soldier", "Armored Knight", "Cataphract", "Great Knight"]],
 	["Sirocco", 	["Commoner", "Diviner", "Myrmidon", "Shido", "Shadow Seeker"]],
 	["Mu", 			["Commoner", "Gladiator", "Pugilist", "Warrior", "Battlemaster"]],
