@@ -1046,7 +1046,7 @@ function autoLevel(side){
 		this[side+"Class"+1].disabled = true;
 		listMounts(side, level);
 		if (["Io", "Alexandra"].includes(this[side+"Char1"].value)){
-			this[side+"Mount"+1].selectedIndex = this[side+"Mount"+1].length;
+			this[side+"Mount"+1].selectedIndex = this[side+"Mount"+1].length - 1;
 		}
 		else{
 			this[side+"Mount"+1].selectedIndex = 0;
@@ -1063,7 +1063,7 @@ function autoLevel(side){
 			listMounts(side, i);
 			listMounts(side, level);
 			if (["Io", "Alexandra"].includes(this[side+"Char1"].value)){
-				this[side+"Mount"+1].selectedIndex = this[side+"Mount"+1].length;
+				this[side+"Mount"+1].selectedIndex = this[side+"Mount"+1].length - 1;
 			}
 			else{
 				this[side+"Mount"+1].selectedIndex = 0;
