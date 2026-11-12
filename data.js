@@ -1366,9 +1366,11 @@ function updateStats(side, level){
 			}
 		}
 		let min = false;
-		if (this[side+"Stats"][level][i] < classMins.get(this[side+"Class"+(level)].value)[i]){
-			this[side+"Stats"][level][i] = classMins.get(this[side+"Class"+(level)].value)[i];
-			min = true;
+		if (this[side+"Char1"].value != "Leda" || this[side+"Class"+(level)].value != "Dancer"){
+			if (this[side+"Stats"][level][i] < classMins.get(this[side+"Class"+(level)].value)[i]){
+				this[side+"Stats"][level][i] = classMins.get(this[side+"Class"+(level)].value)[i];
+				min = true;
+			}
 		}
 		if (this[side+"Class"+(level)].value == "Charioteer"){
 			this[side+stats[i]+level].innerHTML = Math.round((this[side+"Stats"][level][i] + classStats.get(this[side+"Class"+level].value)[i] + mountStats.get(this[side+"Mount"+level].value)[i] * 2) * 100) / 100;
@@ -1420,9 +1422,11 @@ function updateStats(side, level){
 				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(lastClass)[j] + mountGrowths.get(this[side+"Mount"+(i-1)].value)[j]) * 0.01) * 100) / 100, cap);
 			}
 			let min = false;
-			if (this[side+"Stats"][i][j] < classMins.get(this[side+"Class"+(i)].value)[j]){
-				this[side+"Stats"][i][j] = classMins.get(this[side+"Class"+(i)].value)[j];
-				min = true;
+			if (this[side+"Char1"].value != "Leda" || this[side+"Class"+(level)].value != "Dancer"){
+				if (this[side+"Stats"][i][j] < classMins.get(this[side+"Class"+(i)].value)[j]){
+					this[side+"Stats"][i][j] = classMins.get(this[side+"Class"+(i)].value)[j];
+					min = true;
+				}
 			}
 			if (this[side+"Class"+(i)].value == "Charioteer"){
 				this[side+stats[j]+i].innerHTML = Math.round((this[side+"Stats"][i][j] + classStats.get(this[side+"Class"+i].value)[j] + mountStats.get(this[side+"Mount"+i].value)[j] * 2) * 100) / 100;
