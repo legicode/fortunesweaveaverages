@@ -978,12 +978,18 @@ function listClasses(table, baseLevel=1){
 					this[side+"Class"+i].add(new Option(classList.get("Beginner")[j]));
 				}
 			}
+			if (this[side+"Char"+1].value == "Leda"){
+				this[side+"Class"+i].add(new Option("Dancer"));
+			}
 		}
 		if (i >= 5 && i < 20){
 			for (let j = 0; j < classList.get("Beginner").length; j++){
 				if (!["Orchel", "Goliath"].includes(this[side+"Char"+1].value) || mounted.get(classList.get("Beginner")[j]) == "None"){
 					this[side+"Class"+i].add(new Option(classList.get("Beginner")[j]));
 				}
+			}
+			if (this[side+"Char"+1].value == "Leda"){
+				this[side+"Class"+i].add(new Option("Dancer"));
 			}
 			this[side+"Class"+i].add(new Option(defaultClasses.get(this[side+"Char"+1].value)[0]));
 			this[side+"Class"+i].value = defaultClasses.get(this[side+"Char"+1].value)[1];
