@@ -1418,7 +1418,12 @@ function updateStats(side, level){
 				this[side+"Stats"][i][j] = classMins.get(this[side+"Class"+(i)].value)[j];
 				min = true;
 			}
-			this[side+stats[j]+i].innerHTML = Math.round((this[side+"Stats"][i][j] + classStats.get(this[side+"Class"+i].value)[j] + mountStats.get(this[side+"Mount"+i].value)[j]) * 100) / 100;
+			if (this[side+"Class"+(i)].value == "Charioteer"){
+				this[side+stats[j]+i].innerHTML = Math.round((this[side+"Stats"][i][j] + classStats.get(this[side+"Class"+i].value)[j] + mountStats.get(this[side+"Mount"+i].value)[j] * 2) * 100) / 100;
+			}
+			else {
+				this[side+stats[j]+i].innerHTML = Math.round((this[side+"Stats"][i][j] + classStats.get(this[side+"Class"+i].value)[j] + mountStats.get(this[side+"Mount"+i].value)[j]) * 100) / 100;
+			}
 			if (display1.value == "Rounded"){
 				this[side+stats[j]+i].innerHTML = Math.round(this[side+stats[j]+i].innerHTML);
 			}
