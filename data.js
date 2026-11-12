@@ -988,10 +988,10 @@ function listClasses(table, baseLevel=1){
 					this[side+"Class"+i].add(new Option(classList.get("Beginner")[j]));
 				}
 			}
-			if (this[side+"Char"+1].value == "Leda"){
+			this[side+"Class"+i].add(new Option(defaultClasses.get(this[side+"Char"+1].value)[0]));
+			if (i < 15 && this[side+"Char"+1].value == "Leda"){
 				this[side+"Class"+i].add(new Option("Dancer"));
 			}
-			this[side+"Class"+i].add(new Option(defaultClasses.get(this[side+"Char"+1].value)[0]));
 			this[side+"Class"+i].value = defaultClasses.get(this[side+"Char"+1].value)[1];
 		}
 		if (i >= 15 && i < 20){
@@ -1001,6 +1001,9 @@ function listClasses(table, baseLevel=1){
 						this[side+"Class"+i].add(new Option(classList.get("Specialty")[j]));
 					}
 				}
+			}
+			if (this[side+"Char"+1].value == "Leda"){
+				this[side+"Class"+i].add(new Option("Dancer"));
 			}
 		}
 		if (i >= 20 && i < 35){
@@ -1017,6 +1020,11 @@ function listClasses(table, baseLevel=1){
 				}
 			}
 			this[side+"Class"+i].add(new Option(defaultClasses.get(this[side+"Char"+1].value)[0]));
+			if (i < 30 && this[side+"Char"+1].value == "Leda"){
+				if (this[side+"Char"+1].value == "Leda"){
+					this[side+"Class"+i].add(new Option("Dancer"));
+				}
+			}
 			this[side+"Class"+i].value = defaultClasses.get(this[side+"Char"+1].value)[2];
 		}
 		if (i >= 30 && i < 35){
