@@ -34,7 +34,7 @@ const defaultClasses = new Map([
 	["Fabio", 		["Commoner", "Diviner", "Shaman", "Ovate", "Druid"]],
 	["Esmeralda", 	["Commoner", "Soldier", "Armored Knight", "Guardian", "Sentinel"]],
 	["Mikaela", 	["Commoner", "Gladiator", "Brigand", "Warrior", "Battlemaster"]],
-	["Orchel", 		["Commoner", "Diviner", "Priest", "Bishop", "Bishop"]],
+	["Orchel", 		["Commoner", "Diviner", "Priest", "Bishop", "Wiseman"]],
 	["Diego", 		["Commoner", "Hunter", "Rogue", "Ranger", "Shadow Seeker"]],
 	["Loretta", 	["Commoner", "Gladiator", "Wing Soldier", "Shido", "Celestial Trooper"]],
 	["Seteth", 		["Commoner", "Soldier", "Light Cavalry", "Dragoon", "Bau Lord"]],
