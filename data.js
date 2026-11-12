@@ -1380,7 +1380,7 @@ function updateStats(side, level){
 			this[side+stats[i]+level].innerHTML = Math.round(this[side+stats[i]+level].innerHTML);
 		}
 		if (min == true){
-			this[side+stats[i]+level].innerHTML = "<span style='color: #E0C438;'><b><u>"+this[side+stats[i]+level].innerHTML+"</u></b></span";
+			this[side+stats[i]+level].innerHTML = "<b><u>"+this[side+stats[i]+level].innerHTML+"</u></b></span";
 		}
 	}
 	for (let i = level*1+1; i <= maxLevel; i++){
@@ -1434,7 +1434,7 @@ function updateStats(side, level){
 				this[side+stats[j]+i].innerHTML = Math.round(this[side+stats[j]+i].innerHTML);
 			}
 			if (min == true){
-				this[side+stats[j]+i].innerHTML = "<span style='color: #E0C438;'><b><u>"+this[side+stats[j]+i].innerHTML+"</u></b></span";
+				this[side+stats[j]+i].innerHTML = "<b><u>"+this[side+stats[j]+i].innerHTML+"</u></b></span";
 			}
 		}
 	}
