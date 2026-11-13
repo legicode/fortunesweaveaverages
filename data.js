@@ -1369,7 +1369,7 @@ leftChar2.value = "Cai";
 rightChar1.value = "Alexandra";
 rightChar2.value = "Alexandra";
 
-for (let i = 98; i >= 60; i--){
+for (let i = 98; i >= 45; i--){
 	max1.add(new Option(i));
 	max2.add(new Option(i));
 	max3.add(new Option(i));
