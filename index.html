@@ -1,8 +1,8 @@
-<!doctype html>
-<html lang="en">
+<!doctype html> 
+<html lang="en"> 
 	<head>
 		<meta charset="utf-8"> 
-		<title>Fire Emblem: Fortune's Weave average stats calculator</title>
+		<title>Fire Emblem Awakening average stats calculator</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<meta name="google-site-verification" content="lUW7ntQ9G46pc1CGUx5YMmg3ReLNqKageKQ65JJ5BH4" />
 	</head>
@@ -16,105 +16,388 @@
 				<a href="https://legicode.github.io/pathofradiancecalc/">Path of Radiance</a> <b>|</b>
 				<a href="https://legicode.github.io/radiantdawncalc/">Radiant Dawn</a><br />
 				<a href="https://legicode.github.io/awakeningcalc/">Awakening data</a> <b>|</b>
-				<a href="https://legicode.github.io/awakeningaverages/">Awakening averages</a> <b>|</b>
+				<b>Awakening averages</b> <b>|</b>
 				<a href="https://redd.it/1wfd5lc" target="_blank">Awakening tier list</a> <b>|</b>
-				<b>Fortune's Weave averages</b>
+				<a href="https://legicode.github.io/fortunesweaveaverages/">Fortune's Weave averages</a>
+			</td></tr>
+
+			<tr><td id="subheader">
+				<b>Awakening</b> <b>|</b> <a href="https://legicode.github.io/AEHaverages/">Enhancement Hack</a>
 			</td></tr>
 
 			<tr><td id="intro">
-				<h3>Average stats calculator for Fire Emblem: Fortune's Weave</h3>
-				<u>Special thanks to:</u><br />
-				<a href="https://www.reddit.com/r/fireemblem/comments/1xfi42m/fortunes_weave_base_stats_and_almost_exact/">Silly</a>: Autolevel formula deciphering<br />
-				<a href="https://forums.serenesforest.net/topic/108442-starting-to-collect-recruitment-data/#findComment-6193231">Aggro Incarnate</a>: Stats data collection<br /><br />
-				Developed by <a href="https://bsky.app/profile/homestar.bsky.social">legi</a>, written by hand with no AI use. Feel free to message any suggestions or ideas. Remaining unimplemented features (Part 2+3 chars, full growths/bases tables) will be coming soon.<br /><br />
-				If you found this tool useful, any donations are appreciated. <a href="https://ko-fi.com/legitimart"><b>Ko-fi</b></a>
+				<h3>Average stats calculator for Fire Emblem Awakening</h3>
+				Mods supported:<br />
+				<a href="https://gamebanana.com/mods/424187">Unofficial Gay Awakening run by Manakete_Smoocher and UnassumingVenusaur</a><br />
+				<a href="https://gamebanana.com/mods/365214">Gender-lock Removal Project (version B) by LJ_Reflet</a> <i>(additions compatible with vanilla)</i><br />
+				<a href="https://github.com/chrom-sevy/Fire-Emblem-Awakening-USA-Patches/blob/main/detgrowth/code.s">Fixed growths</a> by <a href="https://github.com/muhmuhten">muhmuhten</a><br />
+				All character exclusive classes are also treated as inheritable to their kids here.<br /><br />
+				Developed by <a href="https://bsky.app/profile/homestar.bsky.social">legi</a>. Feel free to message suggestions or ideas. <a href="https://ko-fi.com/legitimart">Ko-fi</a>
+			</td></tr>
+
+			<tr><td class="options">
+				&nbsp&nbsp&nbsp Difficulty: &nbsp<select id="difficulty" onChange="difficulty2.value = this.value; updateDifficulty()">
+					<option value="normal">Normal</option>
+					<option value="hard">Hard</option>
+					<option value="lunatic">Lunatic</option>
+				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Robin's asset: &nbsp<select id="asset" onChange="asset2.value = this.value; updateAssetFlaw()">
+					<option value="HP">HP</option>
+					<option value="Strength">Strength</option>
+					<option value="Magic">Magic</option>
+					<option value="Skill">Skill</option>
+					<option value="Speed">Speed</option>
+					<option value="Luck">Luck</option>
+					<option value="Defense">Defense</option>
+					<option value="Resistance">Resistance</option>
+				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Aptitude: &nbsp<select id="aptitude" onChange="aptitude2.value = this.value; updateAptitude()">
+					<option value="aptitudeBoth">Donnel & kid</option>
+					<option value="aptitudeDonnel">Donnel only</option>
+					<option value="aptitudeKid">Kid only?</option>
+					<option value="aptitudeNone">Neither???</option>
+				</select><br />
+				Growths mode: &nbsp<select id="growthsMode" onChange="growthsMode2.value = this.value; updateGrowthsMode()">
+					<option value="average">Average</option>
+					<option value="fixed">Fixed</option>
+				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Robin's flaw: &nbsp<select id="flaw" onChange="flaw2.value = this.value; updateAssetFlaw()">
+					<option value="HP">HP</option>
+					<option value="Strength">Strength</option>
+					<option value="Magic">Magic</option>
+					<option value="Skill">Skill</option>
+					<option value="Speed">Speed</option>
+					<option value="Luck">Luck</option>
+					<option value="Defense">Defense</option>
+					<option value="Resistance">Resistance</option>
+				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Transformations: &nbsp<select id="transformations" onChange="transformations2.value = this.value; updateTransformations()">
+					<option value="none">None</option>
+					<option value="regular">Regular</option>
+					<option value="plus">Plus</option>
+				</select>
 			</td></tr>
 		</table>
 
 		<table id="characters">
 			<tr>
 				<td class="calculator">
-					<b>Character:</b> &nbsp<select id="leftChar1" onChange="leftChar2.value = this.value; updateChar('left')">
-						<option value="Cai">Cai</option>
-					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<b>Recruitment Lv:</b> &nbsp<select id="leftCharRecruit1" onChange="leftCharRecruit2.value = this.value; autoLevel('left')">
-						<option value="1">1</option>
-					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<b>Display:</b> &nbsp<select id="display1" onChange="display2.value = this.value; display3.value = this.value; display4.value = this.value; updateDisplay()">
-						<option value="Decimal">Decimal</option>
-						<option value="Rounded">Rounded</option>
-					</select><br /><br />
-					<table class="statstable" id="leftCharStats">
+					<h2>Parent 1</h2>
+					Character: <select id="parent" onChange="parent2.value = this.value; updateParent()">
+						<option value="Robin (M)">Robin (M)</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="parentClass" onChange="parentClass2.value = this.value; updateParentLevels()">
+						<option value="Tactician">Tactician</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="parentLevel" onChange="parentLevel2.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="levelParent()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="resetParent()">Reset all levels</button><br /><br />
+					<table class="statstable" id="parentStats">
 						<tr>
-							<th class="classes"><u>Base</u></th>
-							<th class="mount"><u>Mount</u></th>
-							<th class="level">Lv.</th>
-							<th class="stats">HP</th>
-							<th class="stats">Str</th>
-							<th class="stats">Mag</th>
-							<th class="stats">Spd</th>
-							<th class="stats">Dex</th>
-							<th class="stats">Def</th>
-							<th class="stats">Res</th>
-							<th class="stats">Lck</th>
-							<th class="stats">Cha</th>
-							<th class="mov">Mov</th>
+							<th class="classes">Class</th>
+							<th class="levels">Level</th>
+							<th>HP</th>
+							<th>Str</th>
+							<th>Mag</th>
+							<th>Skl</th>
+							<th>Spd</th>
+							<th>Lck</th>
+							<th>Def</th>
+							<th>Res</th>
+							<th>Mov</th>
+							<th class="levels">Internal</th>
+						</tr>
+						<tr>
+							<td>Tactician</td>
+							<td><b><u>1</u></b></td>
+							<td>19</td>
+							<td>6</td>
+							<td>5</td>
+							<td>5</td>
+							<td>8</td>
+							<td>2</td>
+							<td>6</td>
+							<td>4</td>
+							<td>5</td>
+							<td><b>1</b></td>
+						</tr>
+						<tr>
+							<th>Pair Up</th>
+							<th>
+								<select id="parentRank" onchange="parentPairUp()">
+									<option value="None">None</option>
+									<option value="C/B">C/B</option>
+									<option value="A/S">A/S</option>
+								</select>
+							</th>
+							<th>0</th>
+							<th id="parentSTR">1</th>
+							<th id="parentMAG">1</th>
+							<th id="parentSKL">2</th>
+							<th id="parentSPD">2</th>
+							<th id="parentLCK">0</th>
+							<th id="parentDEF">0</th>
+							<th id="parentRES">0</th>
+							<th id="parentMOV">0</th>
+							<th>❤</th>
 						</tr>
 					</table><br />
-					<b>Character:</b> &nbsp<select id="leftChar2" onChange="leftChar1.value = this.value; updateChar('left')">
-						<option value="Cai">Cai</option>
-					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<b>Recruitment Lv:</b> &nbsp<select id="leftCharRecruit2" onChange="leftCharRecruit1.value = this.value; autoLevel('left')">
-						<option value="1">1</option>
-					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<b>Display:</b> &nbsp<select id="display2" onChange="display1.value = this.value; display3.value = this.value; display4.value = this.value; updateDisplay()">
-						<option value="Decimal">Decimal</option>
-						<option value="Rounded">Rounded</option>
-					</select>
+					Character: <select id="parent2" onChange="parent.value = this.value; updateParent()">
+						<option value="Robin (M)">Robin (M)</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="parentClass2" onChange="parentClass.value = this.value; updateParentLevels()">
+						<option value="Tactician">Tactician</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="parentLevel2" onChange="parentLevel.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="levelParent()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="resetParent()">Reset all levels</button><br /><br /><br />
 				</td>
 				<td class="calculator">
-					<b>Character:</b> &nbsp<select id="rightChar1" onChange="rightChar2.value = this.value; updateChar('right')">
-						<option value="Alexandra">Alexandra</option>
-					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<b>Recruitment Lv:</b> &nbsp<select id="rightCharRecruit1" onChange="rightCharRecruit2.value = this.value; autoLevel('right')">
-						<option value="1">1</option>
-					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<b>Display:</b> &nbsp<select id="display3" onChange="display1.value = this.value; display2.value = this.value; display4.value = this.value; updateDisplay()">
-						<option value="Decimal">Decimal</option>
-						<option value="Rounded">Rounded</option>
-					</select><br /><br />
-					<table class="statstable" id="rightCharStats">
+					<h2>Parent 2</h2>
+					Character: <select id="spouse" onChange="spouse2.value = this.value; updateSpouse()">
+						<option value="Sumia">Sumia</option>
+						<option value="Robin (M)">Robin (M)</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="spouseClass" onChange="spouseClass2.value = this.value; updateSpouseLevels()">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="spouseLevel" onChange="spouseLevel2.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="levelSpouse()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="resetSpouse()">Reset all levels</button><br /><br />
+					<table class="statstable" id="spouseStats">
 						<tr>
-							<th class="classes"><u>Base</u></th>
-							<th class="mount"><u>Mount</u></th>
-							<th class="level">Lv.</th>
-							<th class="stats">HP</th>
-							<th class="stats">Str</th>
-							<th class="stats">Mag</th>
-							<th class="stats">Spd</th>
-							<th class="stats">Dex</th>
-							<th class="stats">Def</th>
-							<th class="stats">Res</th>
-							<th class="stats">Lck</th>
-							<th class="stats">Cha</th>
-							<th class="mov">Mov</th>
+							<th class="classes">Class</th>
+							<th class="levels">Level</th>
+							<th>HP</th>
+							<th>Str</th>
+							<th>Mag</th>
+							<th>Skl</th>
+							<th>Spd</th>
+							<th>Lck</th>
+							<th>Def</th>
+							<th>Res</th>
+							<th>Mov</th>
+							<th class="levels">Internal</th>
+						</tr>
+						<tr>
+							<td>Pegasus Knight</td>
+							<td><b><u>1</u></b></td>
+							<td>18</td>
+							<td>6</td>
+							<td>3</td>
+							<td>11</td>
+							<td>11</td>
+							<td>8</td>
+							<td>5</td>
+							<td>7</td>
+							<td>7</td>
+							<td><b>1</b></td>
+						</tr>
+						<tr>
+							<th>Pair Up</th>
+							<th>
+								<select id="spouseRank" onchange="spousePairUp()">
+									<option value="None">None</option>
+									<option value="C/B">C/B</option>
+									<option value="A/S">A/S</option>
+								</select>
+							</th>
+							<th>0</th>
+							<th id="spouseSTR">0</th>
+							<th id="spouseMAG">0</th>
+							<th id="spouseSKL">1</th>
+							<th id="spouseSPD">4</th>
+							<th id="spouseLCK">0</th>
+							<th id="spouseDEF">0</th>
+							<th id="spouseRES">3</th>
+							<th id="spouseMOV">0</th>
+							<th>❤</th>
 						</tr>
 					</table><br />
-					<b>Character:</b> &nbsp<select id="rightChar2" onChange="rightChar1.value = this.value; updateChar('right')">
-						<option value="Alexandra">Alexandra</option>
-					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<b>Recruitment Lv:</b> &nbsp<select id="rightCharRecruit2" onChange="rightCharRecruit1.value = this.value; autoLevel('right')">
-						<option value="1">1</option>
-					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<b>Display:</b> &nbsp<select id="display4" onChange="display1.value = this.value; display2.value = this.value; display3.value = this.value; updateDisplay()">
-						<option value="Decimal">Decimal</option>
-						<option value="Rounded">Rounded</option>
-					</select>
+					Character: <select id="spouse2" onChange="spouse.value = this.value; updateSpouse()">
+						<option value="Sumia">Sumia</option>
+						<option value="Robin (M)">Robin (M)</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="spouseClass2" onChange="spouseClass.value = this.value; updateSpouseLevels()">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="spouseLevel2" onChange="spouseLevel.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="levelSpouse()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="resetSpouse()">Reset all levels</button><br /><br /><br />
+				</td>
+			</tr>
+			<tr>
+				<td class="calculator">
+					<h2>Child 1</h2>
+					<button type="button" id="resetChild" onClick="generateChildBases()">Generate base stats</button><br /><br />
+					Character: <b><span id="child">Morgan</span></b>&nbsp&nbsp&nbsp
+					Class: <select id="childClass" onChange="childClass2.value = this.value; updateChildLevels()">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="childLevel" onChange="childLevel2.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="levelChild()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="resetChild()">Reset all levels</button><br /><br />
+					<table class="statstable" id="childStats">
+						<tr>
+							<th class="classes">Class</th>
+							<th class="levels">Level</th>
+							<th>HP</th>
+							<th>Str</th>
+							<th>Mag</th>
+							<th>Skl</th>
+							<th>Spd</th>
+							<th>Lck</th>
+							<th>Def</th>
+							<th>Res</th>
+							<th>Mov</th>
+							<th class="levels">Internal</th>
+						</tr>
+						<tr>
+							<th>Pair Up</th>
+							<th>
+								<select id="childRank" onchange="childPairUp()">
+									<option value="None">None</option>
+									<option value="C/B">C/B</option>
+									<option value="A/S">A/S</option>
+								</select>
+							</th>
+							<th id="childHP">–</th>
+							<th id="childSTR">–</th>
+							<th id="childMAG">–</th>
+							<th id="childSKL">–</th>
+							<th id="childSPD">–</th>
+							<th id="childLCK">–</th>
+							<th id="childDEF">–</th>
+							<th id="childRES">–</th>
+							<th id="childMOV">–</th>
+							<th>❤</th>
+						</tr>
+					</table><br />
+					Character: <b><span id="child2">Morgan</span></b>&nbsp&nbsp&nbsp
+					Class: <select id="childClass2" onChange="childClass.value = this.value; updateChildLevels()">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="childLevel2" onChange="childLevel.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="levelChild()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="resetChild()">Reset all levels</button><br /><br /><br />
+				</td>
+				<td class="calculator">
+					<h2>Child 2</h2>
+					<button type="button" id="resetSibling" onClick="generateSiblingBases()">Generate base stats</button><br /><br />
+					Character: <b><span id="sibling">Cynthia</span></b>&nbsp&nbsp&nbsp
+					Class: <select id="siblingClass" onChange="siblingClass2.value = this.value; updateSiblingLevels()">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="siblingLevel" onChange="siblingLevel2.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="levelSibling()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="resetSibling()">Reset all levels</button><br /><br />
+					<table class="statstable" id="siblingStats">
+						<tr>
+							<th class="classes">Class</th>
+							<th class="levels">Level</th>
+							<th>HP</th>
+							<th>Str</th>
+							<th>Mag</th>
+							<th>Skl</th>
+							<th>Spd</th>
+							<th>Lck</th>
+							<th>Def</th>
+							<th>Res</th>
+							<th>Mov</th>
+							<th class="levels">Internal</th>
+						</tr>
+						<tr>
+							<th>Pair Up</th>
+							<th>
+								<select id="siblingRank" onchange="siblingPairUp()">
+									<option value="None">None</option>
+									<option value="C/B">C/B</option>
+									<option value="A/S">A/S</option>
+								</select>
+							</th>
+							<th id="siblingHP">–</th>
+							<th id="siblingSTR">–</th>
+							<th id="siblingMAG">–</th>
+							<th id="siblingSKL">–</th>
+							<th id="siblingSPD">–</th>
+							<th id="siblingLCK">–</th>
+							<th id="siblingDEF">–</th>
+							<th id="siblingRES">–</th>
+							<th id="siblingMOV">–</th>
+							<th>❤</th>
+						</tr>
+					</table><br />
+					Character: <b><span id="sibling2">Cynthia</span></b>&nbsp&nbsp&nbsp
+					Class: <select id="siblingClass2" onChange="siblingClass.value = this.value; updateSiblingLevels()">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="siblingLevel2" onChange="siblingLevel.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="levelSibling()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" onClick="resetSibling()">Reset all levels</button><br /><br /><br />
 				</td>
 			</tr>
 		</table>
 
 		<table id="below">
+			<tr><td class="options">
+				&nbsp&nbsp&nbsp Difficulty: &nbsp<select id="difficulty2" onChange="difficulty.value = this.value; updateDifficulty()">
+					<option value="normal">Normal</option>
+					<option value="hard">Hard</option>
+					<option value="lunatic">Lunatic</option>
+				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Robin's asset: &nbsp<select id="asset2" onChange="asset.value = this.value; updateAssetFlaw()">
+					<option value="HP">HP</option>
+					<option value="Strength">Strength</option>
+					<option value="Magic">Magic</option>
+					<option value="Skill">Skill</option>
+					<option value="Speed">Speed</option>
+					<option value="Luck">Luck</option>
+					<option value="Defense">Defense</option>
+					<option value="Resistance">Resistance</option>
+				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Aptitude: &nbsp<select id="aptitude2" onChange="aptitude.value = this.value; updateAptitude()">
+					<option value="aptitudeBoth">Donnel & kid</option>
+					<option value="aptitudeDonnel">Donnel only</option>
+					<option value="aptitudeKid">Kid only?</option>
+					<option value="aptitudeNone">Neither???</option>
+				</select><br />
+				Growths mode: &nbsp<select id="growthsMode2" onChange="growthsMode.value = this.value; updateGrowthsMode()">
+					<option value="average">Average</option>
+					<option value="fixed">Fixed</option>
+				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Robin's flaw: &nbsp<select id="flaw2" onChange="flaw.value = this.value; updateAssetFlaw()">
+					<option value="HP">HP</option>
+					<option value="Strength">Strength</option>
+					<option value="Magic">Magic</option>
+					<option value="Skill">Skill</option>
+					<option value="Speed">Speed</option>
+					<option value="Luck">Luck</option>
+					<option value="Defense">Defense</option>
+					<option value="Resistance">Resistance</option>
+				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Transformations: &nbsp<select id="transformations2" onChange="transformations.value = this.value; updateTransformations()">
+					<option value="none">None</option>
+					<option value="regular">Regular</option>
+					<option value="plus">Plus</option>
+				</select>
+			</td></tr>
+
 			<tr><td id="footer">
 				<a href="https://legicode.github.io/bindingbladecalc/">Binding Blade</a> <b>|</b>
 				<a href="https://legicode.github.io/blazingbladecalc/">Blazing Blade</a> <b>|</b>
@@ -122,9 +405,9 @@
 				<a href="https://legicode.github.io/pathofradiancecalc/">Path of Radiance</a> <b>|</b>
 				<a href="https://legicode.github.io/radiantdawncalc/">Radiant Dawn</a><br />
 				<a href="https://legicode.github.io/awakeningcalc/">Awakening data</a> <b>|</b>
-				<a href="https://legicode.github.io/awakeningaverages/">Awakening averages</a> <b>|</b>
+				<b>Awakening averages</b> <b>|</b>
 				<a href="https://redd.it/1wfd5lc" target="_blank">Awakening tier list</a> <b>|</b>
-				<b>Fortune's Weave averages</b>
+				<a href="https://legicode.github.io/fortunesweaveaverages/">Fortune's Weave averages</a>
 			</td></tr>
 		</table>
 		<script src="data.js"></script>
