@@ -79,6 +79,9 @@ th.mount{
 th.level{
 	width: 28px;
 }
+th.hp{
+	width: 50px;
+}
 th.stats{
 	width: 42px;
 }
