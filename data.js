@@ -1244,10 +1244,14 @@ function updateStats(side, level){
 			}
 		}
 		let min = false;
-		if (this[side+"Char1"].value != "Leda" || this[side+"Class"+(level)].value != "Dancer"){
-			if (this[side+"Stats"][level][i] < classMins.get(this[side+"Class"+(level)].value)[i]){
-				this[side+"Stats"][level][i] = classMins.get(this[side+"Class"+(level)].value)[i];
-				min = true;
+		if (level > 1){
+			if (this[side+"Class"+(level-1)].disabled == false){
+				if (this[side+"Char1"].value != "Leda" || this[side+"Class"+(level)].value != "Dancer"){
+					if (this[side+"Stats"][level][i] < classMins.get(this[side+"Class"+(level)].value)[i]){
+						this[side+"Stats"][level][i] = classMins.get(this[side+"Class"+(level)].value)[i];
+						min = true;
+					}
+				}
 			}
 		}
 		if (this[side+"Class"+(level)].value == "Charioteer"){
@@ -1299,11 +1303,20 @@ function updateStats(side, level){
 			else {
 				this[side+"Stats"][i][j] = Math.min(Math.round((this[side+"Stats"][i-1][j] + (charGrowths.get(this[side+"Char1"].value)[j] + classGrowths.get(lastClass)[j] + mountGrowths.get(this[side+"Mount"+(i-1)].value)[j]) * 0.01) * 100) / 100, cap);
 			}
+			let classChange = false;
+			for (let k = i-1; k >= this[side+"CharRecruit1"].value; k--){
+				if (this[side+"Class"+(k)].value != this[side+"Class"+(i)].value){
+					classChange = true;
+					break;
+				}
+			}
 			let min = false;
-			if (this[side+"Char1"].value != "Leda" || this[side+"Class"+(level)].value != "Dancer"){
-				if (this[side+"Stats"][i][j] < classMins.get(this[side+"Class"+(i)].value)[j]){
-					this[side+"Stats"][i][j] = classMins.get(this[side+"Class"+(i)].value)[j];
-					min = true;
+			if (classChange){
+				if (this[side+"Char1"].value != "Leda" || this[side+"Class"+(level)].value != "Dancer"){
+					if (this[side+"Stats"][i][j] < classMins.get(this[side+"Class"+(i)].value)[j]){
+						this[side+"Stats"][i][j] = classMins.get(this[side+"Class"+(i)].value)[j];
+						min = true;
+					}
 				}
 			}
 			if (this[side+"Class"+(i)].value == "Charioteer"){
