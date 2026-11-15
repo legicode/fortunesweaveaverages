@@ -1205,6 +1205,16 @@ function updateStats(side, level){
 		else {
 			let autoLevel = this[side+"CharRecruit1"].value;
 			if (autoLevel == "Cai"){
+				this[side+"HP6"].innerHTML = 26;
+				this[side+"STR6"].innerHTML = 8;
+				this[side+"MAG6"].innerHTML = 12;
+				this[side+"SPD6"].innerHTML = 7;
+				this[side+"DEX6"].innerHTML = 7;
+				this[side+"DEF6"].innerHTML = 7;
+				this[side+"RES6"].innerHTML = 8;
+				this[side+"LCK6"].innerHTML = 10;
+				this[side+"CHA6"].innerHTML = 11;
+				this[side+"MOV6"].innerHTML = 4;
 				autoLevel = 13;
 			}
 			if (level == autoLevel){
