@@ -1091,6 +1091,10 @@ function updateChar(side){
 			this[side+"CharRecruit2"].options.add(new Option(i));
 		}
 	}
+	if (["Cai", "Bertrand", "Dietrich", "Orchel", "Theodora", "Talimun", "Leda", "Anatolia"].includes(this[side+"Char1"].value)){
+		this[side+"CharRecruit1"].options.add(new Option(40));
+		this[side+"CharRecruit2"].options.add(new Option(40));
+	}
 	listAllClasses(this[side+"CharStats"]);
 	autoLevel(side);
 }
